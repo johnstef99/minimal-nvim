@@ -27,6 +27,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/nerdtree'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 "}}}
