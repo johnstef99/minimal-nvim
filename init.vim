@@ -1,0 +1,82 @@
+" Plugins "{{{
+call plug#begin()
+
+" nvim lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+
+" ui related
+Plug 'morhetz/gruvbox'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim' " TODO: set keymaps for barbar
+Plug 'shadmansaleh/lualine.nvim'
+
+" utils
+Plug 'dbeniamine/cheat.sh-vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'preservim/nerdtree'
+
+call plug#end()
+"}}}
+
+" Vim settings "{{{
+let mapleader = " "
+set ignorecase
+set mouse=a
+set nowrap
+set relativenumber
+set nu
+set smarttab
+set cindent
+set tabstop=2
+set shiftwidth=2
+" always uses spaces instead of tab characters
+set expandtab
+colorscheme gruvbox
+syntax enable
+set termguicolors
+hi Normal guibg=NONE ctermbg=NONE
+set winblend=0
+set wildoptions=pum
+set pumblend=5
+set background=dark
+set hidden
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+set noswapfile
+"}}}
+
+" Telescope {{{
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" }}}
+
+" Nerdtree {{{
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+nnoremap <leader>e :NERDTreeToggle<CR>
+" }}}
+
+" Lua settings {{{
+lua require'config'
+"}}}
+
+"-----------------------------------------
+" vim: set foldmethod=marker foldlevel=0:
