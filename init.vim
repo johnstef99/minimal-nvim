@@ -43,23 +43,17 @@ set smarttab
 set cindent
 set tabstop=2
 set shiftwidth=2
-" always uses spaces instead of tab characters
-set expandtab
+set hidden
+set updatetime=300
+"set shortmess+=c " don't give |ins-completion-menu| messages.
+set signcolumn=yes " always show signcolumns
+set noswapfile
+set expandtab " always uses spaces instead of tab characters
 colorscheme gruvbox
 syntax enable
 set termguicolors
-hi Normal guibg=NONE ctermbg=NONE
-set winblend=0
-set wildoptions=pum
-set pumblend=5
 set background=dark
-set hidden
-set updatetime=300
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-set noswapfile
+hi Normal guibg=NONE ctermbg=NONE
 "}}}
 
 " Telescope {{{
