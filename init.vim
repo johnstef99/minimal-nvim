@@ -31,6 +31,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'preservim/nerdtree'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'romainl/vim-cool'
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 "}}}
@@ -72,8 +74,26 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 nnoremap <leader>e :NERDTreeToggle<CR>
 " }}}
 
+" Sneak {{{
+let g:sneak#label = 1
+" }}}
+
 " Lua settings {{{
 lua require'config'
+"}}}
+
+" Maps {{{
+nnoremap Y yg$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nmap spg :set spell spelllang=el<CR>
+nmap spe :set spell spelllang=en<CR>
+nmap spn :set nospell<CR>
+" }}}
+
 "}}}
 
 "-----------------------------------------
