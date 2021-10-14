@@ -1,7 +1,7 @@
 # Minimal Nvim
 
 ## Pre-requirements
-- **nvim v0.5 or higher**
+- **nvim v0.5 or higher** (because of `lspsaga` you need v0.5.1+)
 - npm (for most of the LSP servers)
 
 ## Features

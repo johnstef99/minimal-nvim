@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim' " TODO: set keymaps for barbar
 Plug 'shadmansaleh/lualine.nvim'
+Plug 'tami5/lspsaga.nvim'
 
 " utils
 Plug 'dbeniamine/cheat.sh-vim'
