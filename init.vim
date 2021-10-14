@@ -12,6 +12,7 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'akinsho/flutter-tools.nvim' " TODO: find a way to make extra configs optional
 
 " ui related
 Plug 'morhetz/gruvbox'

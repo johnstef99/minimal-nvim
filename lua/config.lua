@@ -181,6 +181,16 @@ lsp.jsonls.setup {
   }
 }
 --}}}
+
+-- flutter {{{
+require("flutter-tools").setup{
+  lsp = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  },
+} -- use defaults
+--}}}
+
 --}}}
 
 -- Treesitter setup {{{
