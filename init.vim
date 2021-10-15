@@ -82,6 +82,12 @@ let g:sneak#label = 1
 lua require'config'
 "}}}
 
+" Barbar maps {{{
+nnoremap <leader>bb :BufferPick<CR>
+nnoremap <leader>bn :BufferNext<CR>
+nnoremap <leader>bp :BufferPrevious<CR>
+"}}}
+
 " Maps {{{
 nnoremap Y yg$
 nnoremap n nzzzv
