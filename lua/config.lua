@@ -3,7 +3,6 @@
 local lsp = require("lspconfig")
 local cmp_lsp = require("cmp_nvim_lsp")
 local cmp = require("cmp")
-local null_ls = require("null-ls")
 local treesitter = require("nvim-treesitter.configs")
 local lualine = require("lualine")
 local saga = require 'lspsaga'
@@ -251,7 +250,7 @@ treesitter.setup {
     disable = {},
   },
   indent = {
-    enable = false,
+    enable = true,
     disable = {},
   },
   ensure_installed = {
@@ -269,6 +268,10 @@ treesitter.setup {
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.tsx.used_by = { "javascript", "typescript.tsx" }
+-- fold based on treesitter
+set.foldexpr = "nvim_treesitter#foldexpr()"
+set.foldmethod = "expr"
+set.foldenable = false
 -- }}}
 
 -- }}}
