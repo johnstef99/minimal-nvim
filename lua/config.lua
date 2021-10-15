@@ -122,17 +122,6 @@ cmp.setup({
   })
 -- }}}
 
--- NULL_LS setup {{{
--- register null_ls sources
-local sources = {
-	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.prettier,
-	null_ls.builtins.formatting.eslint,
-}
-null_ls.config({ sources = sources })
-lsp["null-ls"].setup({})
--- }}}
-
 -- specific languages lsp setup {{{
 
 -- javascript, typescript {{{
