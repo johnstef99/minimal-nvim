@@ -7,6 +7,8 @@ local treesitter = require("nvim-treesitter.configs")
 local lualine = require("lualine")
 local saga = require 'lspsaga'
 local set = vim.opt
+local os_name = vim.loop.os_uname().version
+local isMac = os_name:match "Darwin"
 
 -- LSPSAGA setup {{{
 saga.init_lsp_saga {
@@ -48,13 +50,13 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
 	buf_set_keymap("n", "<space>l", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-	buf_set_keymap('n', '<C-j>', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-	buf_set_keymap("n", "<S-C-j>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+	buf_set_keymap('n', 'g]', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+	buf_set_keymap("n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 	buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "<space>bf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
   if client.resolved_capabilities.document_formatting then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
   end
 end
 --}}}
@@ -89,7 +91,7 @@ cmp.setup({
       ["<C-n>"] = cmp.mapping.select_next_item(),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<M-Space>'] = cmp.mapping.complete(),
+      [isMac and '<M-Space>' or '<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
       ["<Tab>"] = cmp.mapping(function(fallback)
@@ -187,8 +189,10 @@ lsp.diagnosticls.setup {
 
 -- typescript {{{
 lsp.tsserver.setup({
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-	on_attach = on_attach,
+	on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end,
 	capabilities = capabilities,
 })
 --}}}
@@ -222,6 +226,9 @@ lsp.html.setup{
 
 -- json {{{
 lsp.jsonls.setup {
+  on_attach = function(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
+  end,
   commands = {
     Format = {
       function()
@@ -284,4 +291,4 @@ lualine.setup {
 -- }}}
 
 --------------------------------------------------
--- vim: set foldmethod=marker foldlevel=0:
+-- vim: set foldmethod=marker foldlevel=0 foldenable:

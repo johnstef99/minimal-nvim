@@ -16,9 +16,9 @@ Plug 'akinsho/flutter-tools.nvim' " TODO: find a way to make extra configs optio
 " ui related
 Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim' " TODO: set keymaps for barbar
+Plug 'romgrk/barbar.nvim'
 Plug 'shadmansaleh/lualine.nvim'
-Plug 'tami5/lspsaga.nvim', {'commit': '276822b611b26be2e52a31d8eef1ccce30b819a5'}
+Plug 'tami5/lspsaga.nvim', {'branch': 'nvim51'}
 
 " utils
 Plug 'dbeniamine/cheat.sh-vim'
@@ -83,8 +83,11 @@ lua require'config'
 
 " Barbar maps {{{
 nnoremap <leader>bb :BufferPick<CR>
-nnoremap <leader>bn :BufferNext<CR>
-nnoremap <leader>bp :BufferPrevious<CR>
+nnoremap gt :BufferNext<CR>
+nnoremap gT :BufferPrevious<CR>
+nnoremap <leader>bc :BufferClose<CR>
+nnoremap <leader>bw :BufferWipeout<CR>
+nnoremap <leader>bo :BufferCloseAllButCurrent<CR>
 "}}}
 
 " Maps {{{
@@ -102,4 +105,4 @@ nmap spn :set nospell<CR>
 "}}}
 
 "-----------------------------------------
-" vim: set foldmethod=marker foldlevel=0:
+" vim: set foldmethod=marker foldlevel=0 foldenable:
