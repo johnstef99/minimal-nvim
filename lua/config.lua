@@ -9,6 +9,7 @@ local saga = require 'lspsaga'
 local set = vim.opt
 local os_name = vim.loop.os_uname().version
 local isMac = os_name:match "Darwin"
+local null_ls = require("null-ls")
 
 -- LSPSAGA setup {{{
 saga.init_lsp_saga {
@@ -126,12 +127,12 @@ cmp.setup({
 -- NULL_LS setup {{{
 -- register null_ls sources
 local sources = {
-	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.formatting.prettier,
-	null_ls.builtins.formatting.eslint,
+	null_ls.builtins.formatting.uncrustify,
 }
 null_ls.config({ sources = sources })
-lsp["null-ls"].setup({})
+lsp["null-ls"].setup({
+  on_attach = on_attach,
+})
 -- }}}
 
 -- specific languages lsp setup {{{
