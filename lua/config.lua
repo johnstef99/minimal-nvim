@@ -248,6 +248,15 @@ require("flutter-tools").setup{
 } -- use defaults
 --}}}
 
+-- c# {{{
+lsp.csharp_ls.setup({
+	on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+  end,
+	capabilities = capabilities,
+})
+--}}}
+
 --}}}
 
 -- Treesitter setup {{{
