@@ -32,6 +32,7 @@ Plug 'preservim/nerdtree'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'romainl/vim-cool'
 Plug 'justinmk/vim-sneak'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 "}}}
@@ -100,6 +101,11 @@ vnoremap <leader>y "+y
 nmap spg :set spell spelllang=el<CR>
 nmap spe :set spell spelllang=en<CR>
 nmap spn :set nospell<CR>
+" }}}
+
+" Emmet {{{
+let g:user_emmet_leader_key = '`'
+let g:user_emmet_expandabbr_key = '``'
 " }}}
 
 "}}}
