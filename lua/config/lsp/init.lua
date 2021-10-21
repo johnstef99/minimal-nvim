@@ -183,7 +183,7 @@ local function languages()
 
 	-- c# {{{
 	local pid = vim.fn.getpid()
-	local omnisharp_bin = "/home/john/Downloads/omnisharp-linux-x64/run"
+	local omnisharp_bin = vim.fn.stdpath("data") .. "/lsp_servers/omnisharp/omnisharp/run"
 	require("lspconfig").omnisharp.setup({
 		cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 		on_attach = on_attach,
