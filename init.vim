@@ -105,8 +105,13 @@ nmap spn :set nospell<CR>
 " }}}
 
 " Emmet {{{
-let g:user_emmet_leader_key = '`'
-let g:user_emmet_expandabbr_key = '``'
+if(has("mac"))
+  let g:user_emmet_leader_key = '§'
+  let g:user_emmet_expandabbr_key = '§§'
+else
+  let g:user_emmet_leader_key = '`'
+  let g:user_emmet_expandabbr_key = '``'
+endif
 " }}}
 
 "}}}
