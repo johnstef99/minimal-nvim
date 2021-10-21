@@ -5,20 +5,20 @@ local cmp_lsp = require("cmp_nvim_lsp")
 local cmp = require("cmp")
 local treesitter = require("nvim-treesitter.configs")
 local lualine = require("lualine")
-local saga = require 'lspsaga'
+local saga = require("lspsaga")
 local set = vim.opt
 local os_name = vim.loop.os_uname().version
-local isMac = os_name:match "Darwin"
+local isMac = os_name:match("Darwin")
 local null_ls = require("null-ls")
 
 -- LSPSAGA setup {{{
-saga.init_lsp_saga {
-  error_sign = '',
-  warn_sign = '',
-  hint_sign = '',
-  infor_sign = '',
-  border_style = "round",
-}
+saga.init_lsp_saga({
+	error_sign = "",
+	warn_sign = "",
+	hint_sign = "",
+	infor_sign = "",
+	border_style = "round",
+})
 --- }}}
 
 -- Custom reuseable on_attach method{{{
@@ -39,9 +39,9 @@ local on_attach = function(client, bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	buf_set_keymap('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
+	buf_set_keymap("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	buf_set_keymap('i', '<C-k>', '<cmd>Lspsaga signature_help<CR>', opts)
+	buf_set_keymap("i", "<C-k>", "<cmd>Lspsaga signature_help<CR>", opts)
 	buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
 	buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
@@ -51,14 +51,14 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
 	buf_set_keymap("n", "<space>l", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-	buf_set_keymap('n', 'g]', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+	buf_set_keymap("n", "g]", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 	buf_set_keymap("n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 	buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	buf_set_keymap("n", "<space>bf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "<space><CR>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
-  end
+	if client.resolved_capabilities.document_formatting then
+		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
+	end
 end
 --}}}
 
@@ -73,138 +73,156 @@ capabilities = cmp_lsp.update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
 cmp.setup({
-    snippet = {
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
-      end,
-    },
-    mapping = {
-      ["<C-p>"] = cmp.mapping.select_prev_item(),
-      ["<C-n>"] = cmp.mapping.select_next_item(),
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      [isMac and '<M-Space>' or '<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif vim.fn["vsnip#available"]() == 1 then
-          feedkey("<Plug>(vsnip-expand-or-jump)", "")
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-        end
-      end, { "i", "s" }),
-      ["<S-Tab>"] = cmp.mapping(function()
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-          feedkey("<Plug>(vsnip-jump-prev)", "")
-        end
-      end, { "i", "s" }),
-    },
-    sources = {
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' },
-      { name = 'buffer' },
-      { name = "calc" },
-      { name = "treesitter" },
-    },
-  })
+	snippet = {
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+	},
+	mapping = {
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-d>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		[isMac and "<M-Space>" or "<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.close(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif vim.fn["vsnip#available"]() == 1 then
+				feedkey("<Plug>(vsnip-expand-or-jump)", "")
+			elseif has_words_before() then
+				cmp.complete()
+			else
+				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+			end
+		end, {
+			"i",
+			"s",
+		}),
+		["<S-Tab>"] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+				feedkey("<Plug>(vsnip-jump-prev)", "")
+			end
+		end, {
+			"i",
+			"s",
+		}),
+	},
+	sources = {
+		{ name = "nvim_lsp" },
+		{ name = "vsnip" },
+		{ name = "buffer" },
+		{ name = "calc" },
+		{ name = "treesitter" },
+	},
+})
 -- }}}
 
 -- NULL_LS setup {{{
 -- register null_ls sources
 local sources = {
-	null_ls.builtins.formatting.uncrustify,
+	null_ls.builtins.formatting.stylua,
 }
 null_ls.config({ sources = sources })
 lsp["null-ls"].setup({
-  on_attach = on_attach,
+	on_attach = on_attach,
 })
 -- }}}
 
 -- specific languages lsp setup {{{
 
 -- general lsp {{{
-lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc', 'html' },
+lsp.diagnosticls.setup({
+	on_attach = on_attach,
+	filetypes = {
+		"javascript",
+		"javascriptreact",
+		"json",
+		"typescript",
+		"typescriptreact",
+		"css",
+		"less",
+		"scss",
+		"markdown",
+		"pandoc",
+		"html",
+	},
 	capabilities = capabilities,
-  init_options = {--{{{
-    linters = {
-      eslint = {
-        command = 'eslint_d',
-        rootPatterns = { '.git' },
-        debounce = 100,
-        args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
-        sourceName = 'eslint_d',
-        parseJson = {
-          errorsRoot = '[0].messages',
-          line = 'line',
-          column = 'column',
-          endLine = 'endLine',
-          endColumn = 'endColumn',
-          message = '[eslint] ${message} [${ruleId}]',
-          security = 'severity'
-        },
-        securities = {
-          [2] = 'error',
-          [1] = 'warning'
-        }
-      },
-    },
-    filetypes = {
-      javascript = 'eslint',
-      javascriptreact = 'eslint',
-      typescript = 'eslint',
-      typescriptreact = 'eslint',
-    },
-    formatters = {
-      eslint_d = {
-        command = 'eslint_d',
-        args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
-        rootPatterns = { '.git' },
-      },
-      prettier = {
-        command = 'prettier',
-        args = { '--stdin-filepath', '%filename' }
-      }
-    },
-    formatFiletypes = {
-      css = 'prettier',
-      javascript = 'eslint_d',
-      javascriptreact = 'eslint_d',
-      json = 'prettier',
-      scss = 'prettier',
-      less = 'prettier',
-      typescript = 'eslint_d',
-      typescriptreact = 'eslint_d',
-      json = 'prettier',
-      markdown = 'prettier',
-      html = 'prettier',
-    }
-  }--}}}
-}
+	init_options = { --{{{
+		linters = {
+			eslint = {
+				command = "eslint_d",
+				rootPatterns = { ".git" },
+				debounce = 100,
+				args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
+				sourceName = "eslint_d",
+				parseJson = {
+					errorsRoot = "[0].messages",
+					line = "line",
+					column = "column",
+					endLine = "endLine",
+					endColumn = "endColumn",
+					message = "[eslint] ${message} [${ruleId}]",
+					security = "severity",
+				},
+				securities = {
+					[2] = "error",
+					[1] = "warning",
+				},
+			},
+		},
+		filetypes = {
+			javascript = "eslint",
+			javascriptreact = "eslint",
+			typescript = "eslint",
+			typescriptreact = "eslint",
+		},
+		formatters = {
+			eslint_d = {
+				command = "eslint_d",
+				args = { "--stdin", "--stdin-filename", "%filename", "--fix-to-stdout" },
+				rootPatterns = { ".git" },
+			},
+			prettier = {
+				command = "prettier",
+				args = { "--stdin-filepath", "%filename" },
+			},
+		},
+		formatFiletypes = {
+			css = "prettier",
+			javascript = "eslint_d",
+			javascriptreact = "eslint_d",
+			json = "prettier",
+			scss = "prettier",
+			less = "prettier",
+			typescript = "eslint_d",
+			typescriptreact = "eslint_d",
+			json = "prettier",
+			markdown = "prettier",
+			html = "prettier",
+		},
+	}, --}}}
+})
 --}}}
 
 -- typescript {{{
 lsp.tsserver.setup({
 	on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-  end,
+		on_attach(client, bufnr)
+		client.resolved_capabilities.document_formatting = false
+	end,
 	capabilities = capabilities,
 })
 --}}}
@@ -223,78 +241,119 @@ lsp.vimls.setup({
 --}}}
 
 -- lua {{{
-lsp.sumneko_lua.setup({
-	cmd = { "lua-language-server", "-E", "/Users/johnstef/.local/bin/main.lua" },
-	capabilities = capabilities,
+local system_name
+if vim.fn.has("mac") == 1 then
+	system_name = "macOS"
+elseif vim.fn.has("unix") == 1 then
+	system_name = "Linux"
+elseif vim.fn.has("win32") == 1 then
+	system_name = "Windows"
+else
+	print("Unsupported system for sumneko")
+end
+
+-- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
+local sumneko_root_path = vim.fn.stdpath("data") .. "/lsp_servers/sumneko_lua/extension/server"
+local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
+
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+require("lspconfig").sumneko_lua.setup({
+	on_attach = on_attach,
+	cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+				version = "LuaJIT",
+				-- Setup your lua path
+				path = runtime_path,
+			},
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
 })
 --}}}
 
 -- html {{{
-lsp.html.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+lsp.html.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 --}}}
 
 -- json {{{
-lsp.jsonls.setup {
-  on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
-  end,
-  commands = {
-    Format = {
-      function()
-        vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-      end
-    }
-  }
-}
+lsp.jsonls.setup({
+	on_attach = function(client, bufnr)
+		client.resolved_capabilities.document_formatting = false
+	end,
+	commands = {
+		Format = {
+			function()
+				vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
+			end,
+		},
+	},
+})
 --}}}
 
 -- flutter {{{
-require("flutter-tools").setup{
-  lsp = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  },
-} -- use defaults
+require("flutter-tools").setup({
+	lsp = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	},
+}) -- use defaults
 --}}}
 
 -- c# {{{
-lsp.csharp_ls.setup({
-	on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-  end,
-	capabilities = capabilities,
+local pid = vim.fn.getpid()
+local omnisharp_bin = "/home/john/Downloads/omnisharp-linux-x64/run"
+require("lspconfig").omnisharp.setup({
+	cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+	on_attach = on_attach,
 })
 --}}}
 
 --}}}
 
 -- Treesitter setup {{{
-treesitter.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-    enable = true,
-    disable = {},
-  },
-  ensure_installed = {
-    "tsx",
-    "toml",
-    "fish",
-    "php",
-    "json",
-    "yaml",
-    "swift",
-    "html",
-    "scss"
-  },
-}
+treesitter.setup({
+	highlight = {
+		enable = true,
+		disable = {},
+	},
+	indent = {
+		enable = true,
+		disable = {},
+	},
+	ensure_installed = {
+		"tsx",
+		"toml",
+		"fish",
+		"php",
+		"json",
+		"yaml",
+		"swift",
+		"html",
+		"scss",
+	},
+})
 
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 parser_config.tsx.used_by = { "javascript", "typescript.tsx" }
 -- fold based on treesitter
 set.foldexpr = "nvim_treesitter#foldexpr()"
@@ -305,10 +364,10 @@ set.foldenable = false
 -- }}}
 
 -- LUALINE setup {{{
-lualine.setup {
-  options = {theme = 'gruvbox'},
-  extensions = {'fugitive'}
-}
+lualine.setup({
+	options = { theme = "gruvbox" },
+	extensions = { "fugitive" },
+})
 -- }}}
 
 --------------------------------------------------
