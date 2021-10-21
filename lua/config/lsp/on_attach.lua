@@ -1,4 +1,4 @@
--- Custom reuseable on_attach method{{{
+-- function Common on_attach method to be used for lsp
 return function(client, bufnr)
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -37,4 +37,3 @@ return function(client, bufnr)
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
 	end
 end
---}}}
