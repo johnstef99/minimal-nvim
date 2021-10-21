@@ -1,6 +1,12 @@
 # Minimal Nvim
 
 ![](images/cover.png)
+Image Features:
+
+- Find references and definitions
+- Info on hover
+- Fuzzy finder
+- Autocomplete
 
 ## Pre-requirements
 

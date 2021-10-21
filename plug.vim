@@ -35,6 +35,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'romainl/vim-cool'
 Plug 'justinmk/vim-sneak'
 Plug 'mattn/emmet-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 "}}}
