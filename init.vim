@@ -39,6 +39,7 @@ nnoremap <leader>tsd <cmd>Telescope lsp_document_symbols<cr>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 nnoremap <leader>e :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusUseNerdFonts = 1
 " }}}
 
 " Sneak {{{
