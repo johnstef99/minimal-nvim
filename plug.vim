@@ -1,4 +1,3 @@
-" Plugins "{{{
 call plug#begin()
 
 " nvim lsp
@@ -37,5 +36,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'mattn/emmet-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+" snippets
+Plug 'Nash0x7E2/awesome-flutter-snippets'
+
 call plug#end()
-"}}}
