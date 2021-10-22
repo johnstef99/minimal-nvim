@@ -60,8 +60,8 @@ function M.init()
 			}),
 		},
 		sources = {
-			{ name = "vsnip" },
 			{ name = "nvim_lsp" },
+			{ name = "vsnip" },
 			{ name = "buffer" },
 			{ name = "path" },
 			{ name = "treesitter" },
