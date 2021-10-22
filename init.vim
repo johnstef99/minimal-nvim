@@ -2,6 +2,7 @@ runtime ./plug.vim
 runtime ./maps.vim
 
 let mapleader = ' '
+let maplocalleader = '\'
 set ignorecase
 set mouse=a
 set nowrap
