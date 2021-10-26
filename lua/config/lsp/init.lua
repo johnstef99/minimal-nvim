@@ -3,6 +3,13 @@ local M = {}
 local lsp = require("lspconfig")
 local on_attach = require("config.lsp.on_attach")
 local capabilities = require("config.cmp").capabilities
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+	properties = {
+		"documentation",
+		"detail",
+		"additionalTextEdits",
+	},
+}
 
 local function languages()
 	--
@@ -187,6 +194,16 @@ local function languages()
 	require("lspconfig").omnisharp.setup({
 		cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 		on_attach = on_attach,
+	})
+	--}}}
+
+	-- php# {{{
+	lsp.intelephense.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		init_options = {
+			licenceKey = os.getenv("INTELEPHENSELICENCE"),
+		},
 	})
 	--}}}
 end
