@@ -22,7 +22,6 @@ Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'tami5/lspsaga.nvim', {'branch': 'nvim51'}
 
 " nerdtree
 Plug 'preservim/nerdtree' |

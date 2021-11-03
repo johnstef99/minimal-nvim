@@ -10,7 +10,7 @@ Image Features:
 
 ## Pre-requirements
 
-- **nvim v0.5 or higher** (because of `lspsaga` you need v0.5.1+)
+- **nvim v0.5 or higher**
 - npm (for most of the LSP servers)
 
 ## Features
