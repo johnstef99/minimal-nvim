@@ -42,6 +42,7 @@ Plug 'romainl/vim-cool'
 Plug 'justinmk/vim-sneak'
 Plug 'mattn/emmet-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'sirver/ultisnips'
 
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets'

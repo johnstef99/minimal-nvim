@@ -42,3 +42,9 @@ else
   let g:user_emmet_expandabbr_key = '``'
 endif
 " }}}
+
+" Utilsnips {{{
+let g:UltiSnipsExpandTrigger = '<F1>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" }}}
