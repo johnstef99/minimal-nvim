@@ -206,6 +206,13 @@ local function languages()
 		},
 	})
 	--}}}
+
+	-- python# {{{
+	lsp.pylsp.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+	--}}}
 end
 
 function M.init()
