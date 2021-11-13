@@ -22,6 +22,8 @@ syntax enable
 set termguicolors
 set background=dark
 hi Normal guibg=NONE ctermbg=NONE
+set keymap=greek_utf-8
+set iminsert=0 imsearch=-1
 
 runtime ./plug.vim
 runtime ./maps.vim
