@@ -72,8 +72,8 @@ local function languages()
 			},
 			formatFiletypes = {
 				css = "prettier",
-				javascript = "eslint_d",
-				javascriptreact = "eslint_d",
+				javascript = "prettier",
+				javascriptreact = "prettier",
 				json = "prettier",
 				scss = "prettier",
 				less = "prettier",
