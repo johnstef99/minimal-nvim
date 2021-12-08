@@ -6,6 +6,7 @@
 " _/ |\___/|_| |_|_| |_|___/\__\___|_|    \_\_| |_|\_/ |_|_| |_| |_|  "
 "|__/                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+runtime ./plug.vim
 
 let mapleader = ' '
 let maplocalleader = '\'
@@ -31,6 +32,5 @@ hi Normal guibg=NONE ctermbg=NONE
 set keymap=greek_utf-8
 set iminsert=0 imsearch=-1
 
-runtime ./plug.vim
 runtime ./maps.vim
 runtime ./config.vim
