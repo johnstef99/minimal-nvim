@@ -198,12 +198,9 @@ local function languages()
 	--}}}
 
 	-- php# {{{
-	lsp.intelephense.setup({
+	lsp.phpactor.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		init_options = {
-			licenceKey = os.getenv("INTELEPHENSELICENCE"),
-		},
 	})
 	--}}}
 
