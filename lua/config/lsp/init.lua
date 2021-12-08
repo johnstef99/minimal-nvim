@@ -213,6 +213,13 @@ local function languages()
 		capabilities = capabilities,
 	})
 	--}}}
+
+	-- latex# {{{
+	lsp.texlab.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+	--}}}
 end
 
 function M.init()
