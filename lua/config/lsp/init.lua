@@ -103,6 +103,13 @@ local function languages()
 	})
 	--}}}
 
+	-- tailwindcss {{{
+	lsp.tailwindcss.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+	--}}}
+
 	-- vim {{{
 	lsp.vimls.setup({
 		capabilities = capabilities,
