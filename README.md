@@ -1,4 +1,8 @@
-# Minimal Nvim
+# !(Minimal) Nvim
+
+It was supposed to be a minimal nvim config but because I'm using vim as my
+main editor for basically everything this config isn't minimal anymore.
+_Centered around flutter and web developer._
 
 ![](images/cover.png)
 Image Features:
