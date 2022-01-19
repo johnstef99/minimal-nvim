@@ -47,6 +47,12 @@ Plug 'sirver/ultisnips'
 Plug 'vim-scripts/AdvancedSorters'
 Plug 'inkarkat/vim-ingo-library'
 
+" Laravel
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'noahfrederick/vim-composer'
+Plug 'noahfrederick/vim-laravel'
+
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets'
 
