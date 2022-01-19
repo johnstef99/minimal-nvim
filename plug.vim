@@ -44,6 +44,8 @@ Plug 'mattn/emmet-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
+Plug 'vim-scripts/AdvancedSorters'
+Plug 'inkarkat/vim-ingo-library'
 
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets'
