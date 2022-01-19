@@ -205,6 +205,10 @@ local function languages()
 	--}}}
 
 	-- php# {{{
+	lsp.psalm.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 	lsp.phpactor.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
