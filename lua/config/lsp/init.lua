@@ -228,6 +228,14 @@ local function languages()
 		capabilities = capabilities,
 	})
 	--}}}
+
+	-- go# {{{
+	lsp.gopls.setup({
+		cmd = { vim.fn.stdpath("data") .. "/lsp_servers/go/gopls" },
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+	--}}}
 end
 
 function M.init()
