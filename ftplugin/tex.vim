@@ -3,5 +3,5 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
-set spelllang=el,en
+set spelllang=el2,en
 let g:vimtex_syntax_conceal_disable=1
