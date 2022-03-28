@@ -46,6 +46,8 @@ Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'vim-scripts/AdvancedSorters'
 Plug 'inkarkat/vim-ingo-library'
+Plug 'MarcWeber/vim-addon-local-vimrc'
+Plug 'vim-scripts/BufOnly.vim'
 
 " Laravel
 Plug 'tpope/vim-dispatch'
@@ -55,5 +57,8 @@ Plug 'noahfrederick/vim-laravel'
 
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets'
+
+" go
+Plug 'fatih/vim-go'
 
 call plug#end()
