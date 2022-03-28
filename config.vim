@@ -33,16 +33,6 @@ lua require("config")
 " nnoremap <silent> <leader>bo :BufferCloseAllButCurrent<CR>
 "}}}
 
-" Emmet {{{
-if(has("mac"))
-  let g:user_emmet_leader_key = '§'
-  let g:user_emmet_expandabbr_key = '§§'
-else
-  let g:user_emmet_leader_key = '`'
-  let g:user_emmet_expandabbr_key = '``'
-endif
-" }}}
-
 " Utilsnips {{{
 let g:UltiSnipsExpandTrigger = '<F1>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
