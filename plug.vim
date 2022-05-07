@@ -48,6 +48,7 @@ Plug 'vim-scripts/AdvancedSorters'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'vim-scripts/BufOnly.vim'
+Plug 'junegunn/goyo.vim'
 
 " Laravel
 Plug 'tpope/vim-dispatch'
