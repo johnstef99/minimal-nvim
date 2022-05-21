@@ -63,4 +63,7 @@ Plug 'Nash0x7E2/awesome-flutter-snippets'
 " go
 Plug 'fatih/vim-go'
 
+" arm
+Plug 'johnstef99/arm-syntax-vim'
+
 call plug#end()
