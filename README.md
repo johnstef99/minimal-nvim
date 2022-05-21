@@ -14,7 +14,7 @@ Image Features:
 
 ## Pre-requirements
 
-- **nvim v0.5 or higher**
+- **recommended version of nvim v0.7 or higher**
 - npm (for most of the LSP servers)
 
 ## Features
