@@ -22,6 +22,7 @@ Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'ap/vim-css-color'
 
 " nerdtree
 Plug 'preservim/nerdtree' |
@@ -50,6 +51,7 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'vim-scripts/DrawIt'
 
 " Laravel
 Plug 'tpope/vim-dispatch'
