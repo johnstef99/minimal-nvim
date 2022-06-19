@@ -51,7 +51,6 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'vim-scripts/DrawIt'
 
 " Laravel
 Plug 'tpope/vim-dispatch'
@@ -60,7 +59,7 @@ Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
 
 " snippets
-Plug 'Nash0x7E2/awesome-flutter-snippets'
+Plug 'Nash0x7E2/awesome-flutter-snippets', {'commit': 'bb77ea5fd0091a328db76ea68543e21b110ee678'}
 
 " go
 Plug 'fatih/vim-go'
