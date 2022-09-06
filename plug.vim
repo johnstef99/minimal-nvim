@@ -53,10 +53,12 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/goyo.vim'
 
 " Laravel
+Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
+Plug 'beanworks/vim-phpfmt'
 
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets', {'commit': 'bb77ea5fd0091a328db76ea68543e21b110ee678'}
