@@ -1,5 +1,6 @@
 local M = {}
 
+require("nvim-lsp-installer").setup {}
 local lsp = require("lspconfig")
 local on_attach = require("config.lsp.on_attach")
 local capabilities = require("config.cmp").capabilities
@@ -201,6 +202,7 @@ local function languages()
     on_attach = on_attach,
     capabilities = capabilities,
   })
+
   lsp.phpactor.setup({
     on_attach = on_attach,
     capabilities = capabilities,
