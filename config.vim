@@ -1,5 +1,6 @@
 " Telescope {{{
 nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope git_files<cr>
 nnoremap <leader>d <cmd>Telescope diagnostics<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>td <cmd>Telescope diagnostics bufnr=0<cr>

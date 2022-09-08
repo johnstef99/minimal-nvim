@@ -9,4 +9,4 @@ nmap spn :setlocal nospell<CR>
 inoremap <c-l> <c-^>
 inoremap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 nmap <c-b>o :BufOnly<CR>
-nmap <leader>g :Goyo<CR>
+nmap <leader>z :Goyo<CR>
