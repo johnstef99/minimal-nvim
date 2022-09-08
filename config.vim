@@ -25,12 +25,12 @@ lua require("config")
 "}}}
 
 " Barbar maps {{{
-" nnoremap <silent> <leader>bb :BufferPick<CR>
-" nnoremap <silent> gt :BufferNext<CR>
-" nnoremap <silent> gT :BufferPrevious<CR>
-" nnoremap <silent> <leader>bc :BufferClose<CR>
-" nnoremap <silent> <leader>bw :BufferWipeout<CR>
-" nnoremap <silent> <leader>bo :BufferCloseAllButCurrent<CR>
+nnoremap <silent> <leader>bb :BufferPick<CR>
+nnoremap <silent> gt :BufferNext<CR>
+nnoremap <silent> gT :BufferPrevious<CR>
+nnoremap <silent> <leader>bc :BufferClose<CR>
+nnoremap <silent> <leader>bw :BufferWipeout<CR>
+nnoremap <silent> <leader>bo :BufferCloseAllButCurrent<CR>
 "}}}
 
 " Utilsnips {{{
