@@ -48,7 +48,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'mattn/emmet-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'lervag/vimtex'
-Plug 'sirver/ultisnips'
 Plug 'vim-scripts/AdvancedSorters'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'MarcWeber/vim-addon-local-vimrc'
@@ -65,6 +64,7 @@ Plug 'beanworks/vim-phpfmt'
 
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets', {'commit': 'bb77ea5fd0091a328db76ea68543e21b110ee678'}
+Plug 'rafamadriz/friendly-snippets'
 
 " go
 Plug 'fatih/vim-go'
