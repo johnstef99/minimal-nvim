@@ -24,11 +24,12 @@ set updatetime=300
 set signcolumn=yes " always show signcolumns
 set noswapfile
 set expandtab " always uses spaces instead of tab characters
-colorscheme gruvbox
+colorscheme doom-one
+let g:doom_one_terminal_colors = v:true
 syntax enable
 set termguicolors
 set background=dark
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 set keymap=greek_utf-8
 set iminsert=0 imsearch=-1
 

@@ -23,6 +23,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ap/vim-css-color'
+Plug 'romgrk/doom-one.vim'
+Plug 'tribela/vim-transparent'
+Plug "j-hui/fidget.nvim"
 
 " nerdtree
 Plug 'preservim/nerdtree' |
