@@ -230,6 +230,20 @@ local function languages()
     capabilities = capabilities,
   })
   --}}}
+
+  -- yaml# {{{
+  lsp.yamlls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      yaml = {
+        schemas = {
+          ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yaml"
+        }
+      }
+    },
+  })
+  --}}}
 end
 
 function M.init()
