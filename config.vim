@@ -1,3 +1,11 @@
+function! ReturnHighlightTerm(group, term)
+   " Store output of group to variable
+   let output = execute('hi ' . a:group)
+
+   " Find the term we're looking for
+   return matchstr(output, a:term.'=\zs\S*')
+endfunction
+
 " Telescope {{{
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope git_files<cr>
@@ -19,6 +27,12 @@ let NERDTreeIgnore=['\~$', '\.aux$', '\.log$', '\.out$', '\.fls$', '\.g.dart$', 
 
 " Sneak {{{
 let g:sneak#label = 1
+map s <Plug>Sneak_s
+let bg = ReturnHighlightTerm('Search', 'guibg')
+let fg = ReturnHighlightTerm('Search', 'guifg')
+exec 'hi SneakLabel guibg='.bg.' guifg='.fg
+exec 'hi SneakLabelMask guibg='.bg.' guifg=None'
+
 " }}}
 
 " Lua settings {{{
