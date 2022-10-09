@@ -60,7 +60,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
-Plug 'beanworks/vim-phpfmt'
+Plug 'johnstef99/vim-phpfmt'
 
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets', {'commit': 'bb77ea5fd0091a328db76ea68543e21b110ee678'}
