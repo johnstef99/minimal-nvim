@@ -9,8 +9,8 @@ endfunction
 " Telescope {{{
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>g <cmd>Telescope git_files<cr>
-nnoremap <leader>d <cmd>Telescope diagnostics<cr>
-nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>dd <cmd>Telescope diagnostics<cr>
+nnoremap <leader>bf <cmd>Telescope buffers<cr>
 nnoremap <leader>td <cmd>Telescope diagnostics bufnr=0<cr>
 nnoremap <leader>tg <cmd>Telescope live_grep<cr>
 nnoremap <leader>th <cmd>Telescope help_tags<cr>
@@ -41,8 +41,8 @@ lua require("config")
 
 " Barbar maps {{{
 nnoremap <silent> <leader>bb :BufferPick<CR>
-nnoremap <silent> gt :BufferNext<CR>
-nnoremap <silent> gT :BufferPrevious<CR>
+" nnoremap <silent> gt :BufferNext<CR>
+" nnoremap <silent> gT :BufferPrevious<CR>
 nnoremap <silent> <leader>bc :BufferClose<CR>
 nnoremap <silent> <leader>bw :BufferWipeout<CR>
 nnoremap <silent> <leader>bo :BufferCloseAllButCurrent<CR>
@@ -71,4 +71,13 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" }}}
+
+" Fugitive {{{
+nnoremap ]c :GitGutterNextHunk<CR>zz
+nnoremap [c :GitGutterPrevHunk<CR>zz
+nnoremap <leader>dg :diffget<CR>
+nnoremap <leader>dp :diffput<CR>
+vnoremap <leader>dg :diffget<CR>
+vnoremap <leader>dp :diffput<CR>
 " }}}
