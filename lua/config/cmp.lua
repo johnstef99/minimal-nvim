@@ -35,10 +35,10 @@ function M.init()
       ["<C-e>"] = cmp.mapping.close(),
       ["<CR>"] = cmp.mapping.confirm({ select = true }),
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif vim.fn["vsnip#available"]() == 1 then
+        if vim.fn["vsnip#available"]() == 1 then
           feedkey("<Plug>(vsnip-expand-or-jump)", "")
+        elseif cmp.visible() then
+          cmp.select_next_item()
         elseif has_words_before() then
           cmp.complete()
         else
