@@ -32,6 +32,7 @@ set background=dark
 " hi Normal guibg=NONE ctermbg=NONE
 set keymap=greek_utf-8
 set iminsert=0 imsearch=-1
+set laststatus=3
 
 runtime ./maps.vim
 runtime ./config.vim
