@@ -90,7 +90,7 @@ local function languages()
   lsp.tsserver.setup({
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
+      client.server_capabilities.document_formatting = false
     end,
     capabilities = capabilities,
   })
@@ -169,7 +169,7 @@ local function languages()
       provideFormatter = false,
     },
     on_attach = function(client)
-      client.resolved_capabilities.document_formatting = false
+      client.server_capabilities.document_formatting = false
     end,
   })
   --}}}

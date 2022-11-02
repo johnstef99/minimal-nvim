@@ -6,7 +6,7 @@ local cmp = require("cmp")
 
 -- Add and Export additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_lsp.update_capabilities(capabilities)
+capabilities = cmp_lsp.default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = capabilities
 
