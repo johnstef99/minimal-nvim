@@ -29,9 +29,9 @@ Plug 'j-hui/fidget.nvim'
 
 " nerdtree
 Plug 'preservim/nerdtree' |
+  \ Plug 'ryanoasis/vim-devicons' | 
   \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-  \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
-  \ Plug 'ryanoasis/vim-devicons'
+  \ Plug 'johnstef99/vim-nerdtree-syntax-highlight'
 
 " utils
 Plug 'dbeniamine/cheat.sh-vim'
@@ -71,5 +71,8 @@ Plug 'fatih/vim-go'
 
 " arm
 Plug 'johnstef99/arm-syntax-vim'
+
+" debugging
+Plug 'mfussenegger/nvim-dap'
 
 call plug#end()
