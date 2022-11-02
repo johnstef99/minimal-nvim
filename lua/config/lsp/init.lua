@@ -181,6 +181,9 @@ local function languages()
       -- run_via_dap = true,
     },
     fvm = true,
+    closing_tags = {
+      enabled = false,
+    },
     lsp = {
       on_attach = on_attach,
       capabilities = capabilities,
@@ -234,6 +237,7 @@ local function languages()
   -- yaml# {{{
   lsp.yamlls.setup({
     on_attach = on_attach,
+    filetype = { "yaml", "yml" },
     capabilities = capabilities,
     settings = {
       yaml = {
