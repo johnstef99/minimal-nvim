@@ -14,5 +14,13 @@ require("telescope").setup({
     },
   },
 })
+require("telescope").setup({
+  defaults = {
+    layout_strategy = 'vertical',
+    layout_config = {
+      vertical = { width = 90 }
+    },
+  },
+})
 require("telescope").load_extension("ui-select")
 require("fidget").setup()
