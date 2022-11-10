@@ -200,7 +200,7 @@ local function languages()
   })
   --}}}
 
-  -- php# {{{
+  -- php {{{
   lsp.psalm.setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -212,21 +212,21 @@ local function languages()
   })
   --}}}
 
-  -- python# {{{
+  -- python {{{
   lsp.pylsp.setup({
     on_attach = on_attach,
     capabilities = capabilities,
   })
   --}}}
 
-  -- latex# {{{
+  -- latex {{{
   lsp.texlab.setup({
     on_attach = on_attach,
     capabilities = capabilities,
   })
   --}}}
 
-  -- go# {{{
+  -- go {{{
   lsp.gopls.setup({
     cmd = { vim.fn.stdpath("data") .. "/lsp_servers/go/gopls" },
     on_attach = on_attach,
@@ -234,7 +234,7 @@ local function languages()
   })
   --}}}
 
-  -- yaml# {{{
+  -- yaml {{{
   lsp.yamlls.setup({
     on_attach = on_attach,
     filetype = { "yaml", "yml" },
@@ -246,6 +246,13 @@ local function languages()
         }
       }
     },
+  })
+  --}}}
+
+  -- c {{{
+  lsp.clangd.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
   })
   --}}}
 end
