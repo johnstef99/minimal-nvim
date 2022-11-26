@@ -20,7 +20,7 @@ Plug 'ray-x/cmp-treesitter'
 " ui related
 Plug 'morhetz/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+" Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ap/vim-css-color'
 Plug 'romgrk/doom-one.vim'
