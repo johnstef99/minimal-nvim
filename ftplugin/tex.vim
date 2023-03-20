@@ -5,3 +5,5 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 set spelllang=el2,en
 let g:vimtex_syntax_conceal_disable=1
+set cc=80
+set tw=80
