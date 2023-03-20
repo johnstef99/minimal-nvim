@@ -13,15 +13,8 @@ treesitter.setup({
 		disable = {},
 	},
 	ensure_installed = {
-		"tsx",
-		"toml",
-		"fish",
-		"php",
-		"json",
-		"yaml",
-		"swift",
-		"html",
-		"scss",
+    "lua",
+    "vim",
 	},
 })
 

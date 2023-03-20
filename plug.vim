@@ -4,10 +4,10 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'akinsho/flutter-tools.nvim' " TODO: find a way to make extra configs optional
+Plug 'akinsho/flutter-tools.nvim'
 
 " cmp
 Plug 'hrsh7th/nvim-cmp'
@@ -20,7 +20,6 @@ Plug 'ray-x/cmp-treesitter'
 
 " ui related
 Plug 'morhetz/gruvbox'
-" Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ap/vim-css-color'
 Plug 'romgrk/doom-one.vim'
@@ -52,7 +51,6 @@ Plug 'vim-scripts/AdvancedSorters'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 
 " Laravel
