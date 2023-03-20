@@ -1,12 +1,19 @@
-local M = {}
+local loaded_mason, mason = pcall(require, "mason")
+local loaded_masonlsp, masonlsp = pcall(require, "mason-lspconfig")
+local loaded_lsp, lsp = pcall(require, "lspconfig")
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = { "vimls" },
+if not loaded_mason or not loaded_masonlsp or not loaded_lsp then
+	return
+end
+
+local on_attach = require("lsp.on_attach")
+local capabilities = require("lsp.cmp").capabilities
+
+mason.setup()
+masonlsp.setup({
+	ensure_installed = { "lua_ls", "vimls" },
 })
-local lsp = require("lspconfig")
-local on_attach = require("config.lsp.on_attach")
-local capabilities = require("config.cmp").capabilities
+
 capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = {
 		"documentation",
@@ -260,7 +267,7 @@ local function languages() -- {{{
 end ---}}}
 
 local function mason_auto_lspconfig() -- {{{
-	require("mason-lspconfig").setup_handlers({
+	masonlsp.setup_handlers({
 		function(server_name)
 			require("lspconfig")[server_name].setup({
 				on_attach = on_attach,
@@ -279,26 +286,4 @@ local function mason_auto_lspconfig() -- {{{
 	})
 end -- }}}
 
-local function flutter_setup() -- {{{
-	require("flutter-tools").setup({
-		debugger = {
-			-- enabled = true,
-			-- run_via_dap = true,
-		},
-		fvm = true,
-		closing_tags = {
-			enabled = false,
-		},
-		lsp = {
-			on_attach = on_attach,
-			capabilities = capabilities,
-		},
-	})
-end -- }}}
-
-function M.init()
-	mason_auto_lspconfig()
-	flutter_setup()
-end
-
-return M
+mason_auto_lspconfig()

@@ -6,7 +6,10 @@
 " _/ |\___/|_| |_|_| |_|___/\__\___|_|    \_\_| |_|\_/ |_|_| |_| |_|  "
 "|__/                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-runtime ./plug.vim
+
+if(!empty(globpath(&rtp, 'autoload/plug.vim')))
+  runtime ./plug.vim
+endif
 
 let mapleader = ' '
 let maplocalleader = '\'
@@ -24,7 +27,7 @@ set updatetime=300
 set signcolumn=yes " always show signcolumns
 set noswapfile
 set expandtab " always uses spaces instead of tab characters
-colorscheme doom-one
+silent! colorscheme doom-one
 let g:doom_one_terminal_colors = v:true
 syntax enable
 set termguicolors
@@ -36,3 +39,7 @@ set laststatus=3
 
 runtime ./maps.vim
 runtime ./config.vim
+
+if has('nvim')
+  lua require("lsp")
+endif

@@ -1,1 +1,4 @@
 /plugged
+*.add
+*.add.spl
+.luarc.json

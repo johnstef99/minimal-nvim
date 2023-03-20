@@ -1,10 +1,12 @@
-local M = {}
+local loaded, dap = pcall(require, "dap")
+if not loaded then
+	return
+end
 
-local dap = require("dap")
 local api = vim.api
 local keymap_restore = {}
 
-function M.mapKWhenActive()
+local function mapKWhenActive()
 	dap.listeners.after["event_initialized"]["me"] = function()
 		for _, buf in pairs(api.nvim_list_bufs()) do
 			local keymaps = api.nvim_buf_get_keymap(buf, "n")
@@ -26,27 +28,23 @@ function M.mapKWhenActive()
 	end
 end
 
-function M.init()
-	dap.adapters.lldb = {
-		type = "executable",
-		command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
-		name = "lldb",
-	}
-	dap.configurations.c = {
-		{
-			name = "Launch",
-			type = "lldb",
-			request = "launch",
-			program = function()
-				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-			end,
-			cwd = "${workspaceFolder}",
-			stopOnEntry = false,
-			args = {},
-		},
-	}
+dap.adapters.lldb = {
+	type = "executable",
+	command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
+	name = "lldb",
+}
+dap.configurations.c = {
+	{
+		name = "Launch",
+		type = "lldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+		args = {},
+	},
+}
 
-	M.mapKWhenActive()
-end
-
-return M
+mapKWhenActive()
