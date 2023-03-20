@@ -2,7 +2,8 @@ call plug#begin()
 
 " nvim lsp
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-lua/plenary.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -53,6 +54,7 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/vim-easy-align'
 
 " Laravel
 Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
@@ -63,7 +65,7 @@ Plug 'noahfrederick/vim-laravel'
 Plug 'johnstef99/vim-phpfmt'
 
 " snippets
-Plug 'Nash0x7E2/awesome-flutter-snippets', {'commit': 'bb77ea5fd0091a328db76ea68543e21b110ee678'}
+Plug 'Nash0x7E2/awesome-flutter-snippets' 
 Plug 'rafamadriz/friendly-snippets'
 
 " go
