@@ -1,17 +1,14 @@
-local M = {}
-
--- require plugins
 local loaded_lsp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 local loaded, cmp = pcall(require, "cmp")
 if not loaded_lsp or not loaded then
-	return M
+	return
 end
 
 -- Add and Export additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_lsp.default_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = capabilities
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = cmp_lsp.default_capabilities(capabilities)
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- M.capabilities = capabilities
 
 local has_words_before = function()
 	local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
@@ -72,5 +69,3 @@ cmp.setup({
 		completeopt = "menu,menuone,noinsert",
 	},
 })
-
-return M

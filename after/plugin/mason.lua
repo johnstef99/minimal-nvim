@@ -7,7 +7,11 @@ if not loaded_mason or not loaded_masonlsp or not loaded_lsp then
 end
 
 local on_attach = require("lsp.on_attach")
-local capabilities = require("lsp.cmp").capabilities
+local loaded, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+if not loaded then
+  return
+end
+local capabilities = cmp_lsp.default_capabilities()
 
 mason.setup()
 masonlsp.setup({

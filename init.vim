@@ -45,7 +45,3 @@ set laststatus=3
 
 runtime ./maps.vim
 runtime ./config.vim
-
-if has('nvim')
-  lua require("lsp")
-endif
