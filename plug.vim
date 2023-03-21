@@ -59,7 +59,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
 Plug 'noahfrederick/vim-laravel'
-Plug 'johnstef99/vim-phpfmt'
 
 " snippets
 Plug 'Nash0x7E2/awesome-flutter-snippets' 
