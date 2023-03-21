@@ -9,7 +9,7 @@ end
 local on_attach = require("lsp.on_attach")
 local loaded, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 if not loaded then
-  return
+	return
 end
 local capabilities = cmp_lsp.default_capabilities()
 
@@ -283,6 +283,24 @@ local function mason_auto_lspconfig() -- {{{
 				settings = {
 					Lua = {
 						format = { enable = false },
+					},
+				},
+			})
+		end,
+		["yamlls"] = function()
+			lsp.yamlls.setup({
+				settings = {
+					yaml = {
+						hover = true,
+						completion = true,
+						validate = true,
+						format = {
+							enable = true,
+						},
+						schemaStore = {
+							enable = true,
+							url = "https://www.schemastore.org/api/json/catalog.json",
+						},
 					},
 				},
 			})
