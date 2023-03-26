@@ -54,7 +54,6 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/vim-easy-align'
 
 " Laravel
-Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'noahfrederick/vim-composer'
