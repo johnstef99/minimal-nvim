@@ -4,17 +4,17 @@ if not loaded then
 end
 
 local cmp_lsp_loaded, cmp_lsp = pcall(require, "cmp_nvim_lsp")
-if cmp_lsp_loaded then
-  return
+if not cmp_lsp_loaded then
+	return
 end
-local capabilities = cmp_lsp.default_capabilities()
 
+local capabilities = cmp_lsp.default_capabilities()
 local on_attach = require("lsp.on_attach")
 
 flutter.setup({
 	debugger = {
-		-- enabled = true,
-		-- run_via_dap = true,
+		enabled = false,
+		run_via_dap = false,
 	},
 	fvm = true,
 	closing_tags = {
