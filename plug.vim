@@ -72,4 +72,6 @@ Plug 'johnstef99/arm-syntax-vim'
 " debugging
 Plug 'mfussenegger/nvim-dap'
 
+Plug 'github/copilot.vim'
+
 call plug#end()
