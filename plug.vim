@@ -74,4 +74,7 @@ Plug 'mfussenegger/nvim-dap'
 
 Plug 'github/copilot.vim'
 
+" rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
