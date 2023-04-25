@@ -308,4 +308,12 @@ local function mason_auto_lspconfig() -- {{{
 	})
 end -- }}}
 
+local function manual_lsp_setup()-- {{{
+	lsp.verible.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+end-- }}}
+
 mason_auto_lspconfig()
+manual_lsp_setup()
