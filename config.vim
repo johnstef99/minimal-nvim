@@ -20,10 +20,10 @@ function! ReturnHighlightTerm(group, term)
 endfunction
 let g:sneak#label = 1
 map s <Plug>Sneak_s
-let bg = ReturnHighlightTerm('IncSearch', 'guibg')
-let fg = ReturnHighlightTerm('IncSearch', 'guifg')
+let fg = ReturnHighlightTerm('IncSearch', 'guibg')
+let bg = ReturnHighlightTerm('IncSearch', 'guifg')
 exec 'hi SneakLabel guibg='.bg.' guifg='.fg
-exec 'hi SneakLabelMask guibg='.bg.' guifg=None'
+exec 'hi SneakLabelMask guibg='.bg.' guifg=cleared'
 
 " }}}
 
