@@ -26,11 +26,8 @@ Plug 'romgrk/doom-one.vim'
 Plug 'tribela/vim-transparent'
 Plug 'j-hui/fidget.nvim'
 
-" nerdtree
-Plug 'preservim/nerdtree' |
-  \ Plug 'ryanoasis/vim-devicons' | 
-  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-  \ Plug 'johnstef99/vim-nerdtree-syntax-highlight'
+Plug 'nvim-tree/nvim-tree.lua' |
+    \ Plug 'nvim-tree/nvim-web-devicons'
 
 " utils
 Plug 'dbeniamine/cheat.sh-vim'
