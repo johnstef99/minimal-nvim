@@ -75,4 +75,6 @@ Plug 'github/copilot.vim'
 " rust
 Plug 'rust-lang/rust.vim'
 
+Plug 'jpalardy/vim-slime'
+
 call plug#end()

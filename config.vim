@@ -41,3 +41,7 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 " }}}
+
+" Vim Slime {{{
+let g:slime_target = "tmux"
+"}}}
