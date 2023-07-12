@@ -42,4 +42,4 @@ set laststatus=3
 
 runtime ./maps.vim
 runtime ./config.vim
-luafile lua/theme.lua
+lua require('theme')
