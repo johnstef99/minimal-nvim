@@ -4,6 +4,14 @@ if not loaded then
 end
 
 lualine.setup({
-	options = { theme = "gruvbox" },
+	options = { theme = "onedark" },
 	extensions = { "fugitive" },
+	sections = {
+		lualine_c = {
+			{
+				"filename",
+				path = 1,
+			},
+		},
+	},
 })
