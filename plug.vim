@@ -21,11 +21,11 @@ Plug 'ray-x/cmp-treesitter'
 
 " ui related
 Plug 'morhetz/gruvbox'
+Plug 'ribru17/bamboo.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ap/vim-css-color'
 Plug 'romgrk/doom-one.vim'
-Plug 'tribela/vim-transparent'
-Plug 'j-hui/fidget.nvim'
+Plug 'j-hui/fidget.nvim', {'tag': 'legacy'}
 
 Plug 'nvim-tree/nvim-tree.lua' |
     \ Plug 'nvim-tree/nvim-web-devicons'

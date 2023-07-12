@@ -33,7 +33,7 @@ set updatetime=300
 set signcolumn=yes " always show signcolumns
 set noswapfile
 set expandtab " always uses spaces instead of tab characters
-silent! colorscheme doom-one
+" silent! colorscheme bamboo
 syntax enable
 set background=dark
 set keymap=greek_utf-8
@@ -42,3 +42,4 @@ set laststatus=3
 
 runtime ./maps.vim
 runtime ./config.vim
+luafile lua/theme.lua
