@@ -2,3 +2,4 @@
 *.add
 *.add.spl
 .luarc.json
+.DS_Store
