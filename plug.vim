@@ -26,6 +26,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'ap/vim-css-color'
 Plug 'romgrk/doom-one.vim'
 Plug 'j-hui/fidget.nvim', {'tag': 'legacy'}
+Plug 'folke/which-key.nvim'
 
 Plug 'nvim-tree/nvim-tree.lua' |
     \ Plug 'nvim-tree/nvim-web-devicons'
