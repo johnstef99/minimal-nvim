@@ -78,6 +78,14 @@ Plug 'github/copilot.vim'
 " rust
 Plug 'rust-lang/rust.vim'
 
+" clojure
 Plug 'jpalardy/vim-slime'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'PaterJason/cmp-conjure'
+Plug 'Olical/conjure'
+Plug 'clojure-vim/vim-jack-in'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'guns/vim-sexp'
 
 call plug#end()
