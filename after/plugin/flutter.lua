@@ -21,6 +21,14 @@ flutter.setup({
 		enabled = false,
 	},
 	lsp = {
+		color = {
+			enabled = true,
+			background = true,
+			background_color = { r = 19, g = 17, b = 24 },
+			foreground = false,
+			virtual_text = true,
+			virtual_text_str = "■",
+		},
 		on_attach = on_attach,
 		capabilities = capabilities,
 	},
