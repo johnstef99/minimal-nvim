@@ -27,6 +27,7 @@ Plug 'ap/vim-css-color'
 Plug 'romgrk/doom-one.vim'
 Plug 'j-hui/fidget.nvim', {'tag': 'legacy'}
 Plug 'folke/which-key.nvim'
+Plug 'stevearc/dressing.nvim'
 
 Plug 'nvim-tree/nvim-tree.lua' |
     \ Plug 'nvim-tree/nvim-web-devicons'
@@ -51,6 +52,7 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'nicwest/vim-camelsnek'
 
 " Laravel
 Plug 'tpope/vim-dispatch'
