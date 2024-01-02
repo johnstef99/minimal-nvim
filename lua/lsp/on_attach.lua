@@ -32,7 +32,7 @@ return function(_, bufnr)
   buf_set_keymap("n", "g]",          "<cmd>lua vim.diagnostic.goto_next()<CR>",                               opts)
   buf_set_keymap("n", "g[",          "<cmd>lua vim.diagnostic.goto_prev()<CR>",                               opts)
   buf_set_keymap("n", "<space>q",    "<cmd>lua vim.diagnostic.set_loclist()<CR>",                             opts)
-  buf_set_keymap("n", "<space><CR>", "<cmd>lua vim.lsp.buf.format()<CR>",                                     opts)
+  buf_set_keymap("",  "<space><CR>", "<cmd>Format<CR>",                                                       opts)
 	-- stylua: ignore end
 
 	-- if client.resolved_capabilities.document_formatting then

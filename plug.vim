@@ -7,7 +7,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'stevearc/conform.nvim'
 Plug 'akinsho/flutter-tools.nvim'
 
 " cmp

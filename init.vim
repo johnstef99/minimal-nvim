@@ -43,3 +43,4 @@ set laststatus=3
 runtime ./maps.vim
 runtime ./config.vim
 lua require('theme')
+lua require('format')

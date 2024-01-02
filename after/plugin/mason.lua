@@ -270,7 +270,7 @@ local function languages() -- {{{
 	--}}}
 end ---}}}
 
-local function mason_auto_lspconfig() -- {{{
+local function mason_auto_lspconfig()
 	masonlsp.setup_handlers({
 		function(server_name)
 			require("lspconfig")[server_name].setup({
@@ -279,10 +279,23 @@ local function mason_auto_lspconfig() -- {{{
 			})
 		end,
 		["lua_ls"] = function()
-			lsp.lua_ls.setup({
+			require("lspconfig").lua_ls.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
 				settings = {
 					Lua = {
-						format = { enable = false },
+						runtime = {
+							version = "LuaJIT",
+						},
+						format = {
+							enable = false,
+						},
+						workspace = {
+							checkThirdParty = false,
+							library = {
+								vim.env.VIMRUNTIME,
+							},
+						},
 					},
 				},
 			})
@@ -308,12 +321,12 @@ local function mason_auto_lspconfig() -- {{{
 	})
 end -- }}}
 
-local function manual_lsp_setup()-- {{{
+local function manual_lsp_setup()
 	lsp.verible.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
-end-- }}}
+end
 
 mason_auto_lspconfig()
 manual_lsp_setup()
