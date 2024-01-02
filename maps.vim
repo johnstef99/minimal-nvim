@@ -19,3 +19,6 @@ nmap <M-l> <C-W><
 nmap <M-h> <C-W>>
 nmap <M-j> <C-W>+
 nmap <M-k> <C-W>-
+
+" zen mode
+nnoremap <leader>\ :ZenMode<CR>

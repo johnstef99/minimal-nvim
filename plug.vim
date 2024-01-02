@@ -29,6 +29,7 @@ Plug 'romgrk/doom-one.vim'
 Plug 'j-hui/fidget.nvim', {'tag': 'legacy'}
 Plug 'folke/which-key.nvim'
 Plug 'stevearc/dressing.nvim'
+Plug 'folke/zen-mode.nvim'
 
 Plug 'nvim-tree/nvim-tree.lua' |
     \ Plug 'nvim-tree/nvim-web-devicons'
