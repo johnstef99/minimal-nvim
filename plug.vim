@@ -4,7 +4,8 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'commit': '33eb472b459f1d2bf49e16154726743ab3ca1c6d'}
+Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'stevearc/conform.nvim'
