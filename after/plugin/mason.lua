@@ -318,6 +318,11 @@ local function mason_auto_lspconfig()
 				},
 			})
 		end,
+		["clangd"] = function()
+			lsp.clangd.setup({
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+			})
+		end,
 	})
 end -- }}}
 
