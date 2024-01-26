@@ -55,6 +55,7 @@ Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'nicwest/vim-camelsnek'
+Plug 'tpope/vim-unimpaired'
 
 " Laravel
 Plug 'tpope/vim-dispatch'
