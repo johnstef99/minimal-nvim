@@ -10,12 +10,17 @@ treesitter.setup({
 	},
 	indent = {
 		enable = true,
-		disable = {},
+		disable = { "dart" },
 	},
 	ensure_installed = {
-    "lua",
-    "vim",
+		"lua",
+		"vim",
 	},
+	ignore_install = {},
+	modules = {},
+	sync_install = false,
+	auto_install = false,
+	parser_install_dir = nil,
 })
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
